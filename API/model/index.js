@@ -61,10 +61,18 @@ class User {
   
     fetchUsers(req, res) {
       const strQry = `
-
           USE b6dr8tdbpszdkbxsgdn4;
           SELECT
-          userID,firstname,lastname ,emailAdd,gender,userRole,userProfile,cellphoneNumber,joinDate FROM USERS;
+          userID,
+          firstname,
+          lastname,
+          emailAdd,
+          gender,
+          userRole,
+          userProfile,
+          cellphoneNumber,
+          joinDate
+           FROM USERS;
           `;
       db.query(strQry, (err, data) => {
         if (err) throw err;
@@ -76,7 +84,17 @@ class User {
       const strQry = `
           USE b6dr8tdbpszdkbxsgdn4;
           SELECT   
-          userID,firstname,lastname,  gender , cellphoneNumber, emailAdd,userRole ,userProfile ,joinDate  FROM USERS WHERE userID = ?;
+          userID,
+          firstname,
+          lastname,
+          gender,
+          cellphoneNumber,
+          emailAdd,
+          userRole,
+          userProfile,
+          joinDate 
+          
+          FROM USERS WHERE userID = ?;
           `;
       db.query(strQry, [req, params.id], (err, data) => {
         if (err) throw err;
@@ -108,8 +126,7 @@ class User {
               }else {
                   // Create a token
                   const jwToken = createToken(user);
-                  // This token will be saved in the cookie. 
-                  // The duration is in milliseconds.
+
                   res.cookie("LegitUser", jwToken, {
                       maxAge: 3600000,
                       httpOnly: true
@@ -152,7 +169,7 @@ class User {
               (err)=>{
               if(err) throw err;
               res.status(200).json( {msg: 
-                  "A record was removed from a database"} );
+                  "user deleted"} );
           })    
       }
   
@@ -232,7 +249,12 @@ class User {
   // Function to add a product to the cart
    addToCart(req, res) {
     const qry = 
-    `INSERT INTO Cart (userID, prodID, quantity)
+    `INSERT INTO  
+        Cart (
+        userID,
+        prodID, 
+        quantity)
+
          VALUES (?, ?, ?)`
      db.query(
         qry,[req.body],(err)=>{
@@ -246,7 +268,7 @@ class User {
   }
 
   // Function to retrieve all the products in the cart for a specific user
-  static async getCartItems(req,res) {
+    getCartItems(req,res) {
      const qry =`SELECT  FROM Cart WHERE userID = ?`
      db.query(
         qry,
