@@ -76,7 +76,8 @@ class User {
           `;
       db.query(strQry, (err, data) => {
         if (err) throw err;
-        else res.status(200).json({ result: data });
+        else res.status(200).json({ result: data })
+        console.log(result[0]);
       });
     }
   
