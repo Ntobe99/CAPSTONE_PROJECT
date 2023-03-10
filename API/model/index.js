@@ -60,6 +60,8 @@ class User {
   
     fetchUsers(req, res) {
       const strQry = `
+
+          USE b6dr8tdbpszdkbxsgdn4;
           SELECT
           userID,firstname,lastname ,emailAdd,gender,userRole,userProfile,cellphoneNumber,joinDate FROM USERS;
           `;
