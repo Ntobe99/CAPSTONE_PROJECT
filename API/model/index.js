@@ -116,11 +116,10 @@ class User {
           SET ?;`;
     db.query(strQry, [detail], (err) => {
       if (err) {
-        res.status(401).json({ err });
+        res.status(401).json({ err:'unable to register user' });
       } else {
         // Create a token
         const jwToken = createToken(user);
-
         res.cookie("LegitUser", jwToken, {
           maxAge: 3600000,
           httpOnly: true,
