@@ -11,7 +11,6 @@ class User {
     const { emailAdd, userPass } = req.body;
 
     const strQry = `
-              USE b6dr8tdbpszdkbxsgdn4;
               SELECT userID,
               firstname,
               lastname,
@@ -81,7 +80,7 @@ class User {
 
   fetchUser(req, res) {
     const strQry = `
-          USE b6dr8tdbpszdkbxsgdn4;
+
           SELECT   
           userID,
           firstname,
@@ -113,7 +112,6 @@ class User {
     };
     // sql query
     const strQry = `
-          USE b6dr8tdbpszdkbxsgdn4;
           INSERT INTO USERS
           SET ?;`;
     db.query(strQry, [detail], (err) => {
@@ -137,7 +135,6 @@ class User {
     if (data.userPass !== null || data.userPass !== undefined)
       data.userPass = hashSync(data.userPass, 15);
     const strQry = `
-          USE b6dr8tdbpszdkbxsgdn4;
           UPDATE USERS
           SET ?
           WHERE userID = ?;
@@ -151,7 +148,6 @@ class User {
 
   deleteUser(req, res) {
     const strQry = `
-          USE b6dr8tdbpszdkbxsgdn4;
           DELETE FROM USERS
           WHERE userID = ?;
           `;
