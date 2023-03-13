@@ -19,7 +19,7 @@ route.get('^/$|/GadgetGeekCentral', (req, res)=>{
 })
 
 // Login
-route.post('/users', bodyParser.json(), (req, res)=>{
+route.post('/login', bodyParser.json(), (req, res)=>{
     user.login(req, res);
 })
 // Retrieve all users
@@ -35,7 +35,7 @@ route.put('/user/:id',bodyParser.json(), (req, res)=>{
     user.updateUser(req, res);
 });
 // Register
-route.post('/user', bodyParser.json(), (req, res)=> {
+route.post('/register', bodyParser.json(), (req, res)=> {
     user.createUser(req, res);
 })
 
