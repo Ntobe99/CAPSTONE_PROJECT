@@ -94,13 +94,13 @@ class User {
           
           FROM USERS WHERE userID = ?;
           `;
-    db.query(strQry, [req, params.id], (err, data) => {
+    db.query(strQry, [req.params.id], (err, data) => {
       if (err) throw err;
-      else res.status(200).json({ results: data });
+      else res.status(200).json({ result: data });
     });
   }
 
-  async createUser(req, res) {
+  async createUser(req,res) {
     // Payload
     let detail = req.body;
     // Hashing user password
