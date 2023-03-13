@@ -107,8 +107,8 @@ class User {
     detail.userPass = await hash(detail.userPass, 15);
     // This information will be used for authentication.
     let user = {
-      emailAddress: detail.emailAdd,
-      userPassword: detail.userPass,
+      emailAdd: detail.emailAdd,
+      userPass: detail.userPass,
     };
     // sql query
     const strQry = `
