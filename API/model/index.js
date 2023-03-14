@@ -125,13 +125,15 @@ class User {
           httpOnly: true,
         });
         res.status(200).json({ msg: "A user record was saved." });
+        
       }
     });
   }
 
   updateUser(req, res) {
     let data = req.body;
-    if (data.userPass !== null || data.userPass !== undefined)
+    if (data.userPass !== null || 
+      data.userPass !== undefined)
       data.userPass = hashSync(data.userPass, 15);
     const strQry = `
           UPDATE USERS
@@ -139,9 +141,10 @@ class User {
           WHERE userID = ?;
           `;
     //db
-    db.query(strQry, [data, req.params.id], (err) => {
+    db.query(strQry, [data, req.params.id],
+       (err) => {
       if (err) throw err;
-      res.status(200).json({ msg: "A row was affected" });
+      res.status(200).json({ msg: "User  updated" });
     });
   }
 
