@@ -19,7 +19,7 @@ route.get('^/$|/GadgetGeekCentral', (req, res)=>{
 })
 
 // Login
-route.post('/user/:id', bodyParser.json(), (req, res)=>{
+route.post('/login', bodyParser.json(), (req, res)=>{
     user.login(req, res);
 })
 // Retrieve all users
