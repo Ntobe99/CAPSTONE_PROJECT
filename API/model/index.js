@@ -8,7 +8,7 @@ let { createToken } = require("../middleware/AuthenticatedUser.js");
 
 class User {
   login(req, res) {
-    const { emailAdd, userPass } = req.body;
+    const { emailAdd, userPass } = req.body
 
     const strQry = `
               SELECT userID,
@@ -32,10 +32,10 @@ class User {
         res.status(401).json({ err: "You provided the wrong email address or Password" });
       } else {
         await compare(userPass, data[0].userPass, (cErr, cResult) => {
-          
+          if(cErr)throw cErr;
           const jwToken = createToken({
             emailAdd,
-            userPass,
+            userPass
           });
           //saving token
           res.cookie("LegitUser", jwToken, {
