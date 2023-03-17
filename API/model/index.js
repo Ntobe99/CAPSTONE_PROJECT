@@ -11,19 +11,9 @@ class User {
     const { emailAdd, userPass } = req.body
 
     const strQry = `
-              SELECT userID,
-              firstname,
-              lastname,
-              emailAdd,
-              userPass,
-              gender,
-              userRole,
-              userProfile,
-              cellphoneNumber,
-              joinDate
+              SELECT userID, firstname, lastname, emailAdd, userPass, gender, userRole, userProfile, cellphoneNumber, joinDate
               FROM USERS 
-              WHERE emailAdd = ${emailAdd};
-  
+              WHERE emailAdd = '${emailAdd}';
               `;
 
     db.query(strQry, async (err, data) => {
