@@ -31,7 +31,7 @@ class User {
       if (!data || data == null) {
         res.status(401).json({ err: "You provided the wrong email address" });
       } else {
-        await compare(userPass, data[0].userPass, (cErr, cResult) => {
+        await compare(userPass, data[0].userPass, (err, result) => {
           // create token
           const jwToken = createToken({
             emailAdd,
@@ -42,7 +42,7 @@ class User {
             maxAge: 3600000,
             httpOnly: true,
           });
-          if (cResult) {
+          if (result) {
             res.status(200).json({
               msg: "Logged in",
               jwToken,
