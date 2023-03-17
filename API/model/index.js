@@ -29,10 +29,10 @@ class User {
     db.query(strQry, async (err, data) => {
       if (err) throw err;
       if (!data || data == null) {
-        res.status(401).json({ err: "You provided the wrong email address" });
+        res.status(401).json({ err: "You provided the wrong email address or Password" });
       } else {
         await compare(userPass, data[0].userPass, (err, result) => {
-          // create token
+          
           const jwToken = createToken({
             emailAdd,
             userPass,
@@ -44,7 +44,7 @@ class User {
           });
           if (result) {
             res.status(200).json({
-              msg: "Logged in",
+              msg: "You have successfully logged in",
               jwToken,
               result: data[0],
             });
