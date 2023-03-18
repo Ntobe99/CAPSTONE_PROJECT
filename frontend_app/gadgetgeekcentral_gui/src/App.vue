@@ -24,20 +24,23 @@ export default{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2f2424;
-  padding-top: 7rem;
+  color: black;
+  padding-top: 6rem;
+  
 }
 
 nav {
   padding: 30px;
+ 
 }
 
 nav a {
   font-weight: bold;
-  color: #f7ee33;
+  color: #2ccbd6;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
-  color: #eded9b ;
+  color: #aac7e3 ;
 }
 </style>

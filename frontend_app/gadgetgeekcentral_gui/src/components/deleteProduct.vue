@@ -21,6 +21,7 @@
         required: true
       }
     },
+    
     data() {
       return {
         showModal: false

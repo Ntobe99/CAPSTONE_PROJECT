@@ -55,7 +55,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/updateProduct.vue')
   },
   {
-    path:'/singlep',
+    path:'/singlep/:id',
     name:'singlep',
     component: () => import(/* webpackChunkName: "about" */ '../components/SingleProduct.vue')
   },

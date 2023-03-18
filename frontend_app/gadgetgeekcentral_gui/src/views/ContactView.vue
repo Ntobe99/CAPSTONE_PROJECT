@@ -20,7 +20,7 @@
       </div>
     </form>
     </div>
-    <div class="col">
+    <div class="col info">
       <h4>Contact Information</h4>
       <p><i class="fa-solid fa-house"></i>314 Imam Haron Rd.</p>
       <p>Cape Town ,South Africa</p>
@@ -45,13 +45,14 @@
 
 <style  scoped>
 .container{
-  padding-top: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .contact-form {
-  
-  background-color: #ffffff;
-  border-radius: 12px;
-  max-width: 400px;
+  padding: 2rem;
+  background-color: rgba(113, 167, 228, 0.84);
+  border-radius: 0;
+  max-width: 600px;
 }
 
 .contact-form textarea {
@@ -73,7 +74,7 @@
 
 .contact-form .form-control::placeholder {
   color: #aeb4b9;
-  font-weight: 500;
+  font-weight: 600;
   opacity: 1;
 }
 
@@ -83,13 +84,13 @@
 }
 
 .contact-form .form-control::-ms-input-placeholder {
-  color: #aeb4b9;
+  color: #e8ecef;
   font-weight: 500;
 }
 
 .contact-form .form-control:focus {
-  border-color: #4e8bed;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px #3ca3e2;
+  border-color: #78eaee;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px #cee0ed;
 }
 
 .contact-form .title {
@@ -99,7 +100,7 @@
 }
 
 .contact-form .description {
-  color: #aeb4b9;
+  color: #919599;
   font-size: 14px;
   text-align: center;
 }
@@ -110,12 +111,12 @@
 
 .contact-form .submit-button-wrapper input {
   border: none;
-  border-radius: 4px;
-  background-color: #2c2095;
+  border-radius:0;
+  background-color: black;
   color: white;
   text-transform: uppercase;
   padding: 10px 60px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 2px;
 }
 
@@ -124,6 +125,9 @@
 }
 .col{
   text-align: start;
+}
+.info{
+  padding-top: 5rem;
 }
 
 </style>

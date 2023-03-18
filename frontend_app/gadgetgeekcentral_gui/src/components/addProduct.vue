@@ -64,6 +64,7 @@
                   <option value="tablets">tablets</option>
                   <option value="gaming">gaming</option>
                   <option value="vr">vr</option>
+                  <option value="drones">Drones</option>
                 </select>
               </div>
               <div class="form-group">
@@ -87,7 +88,7 @@
               <div class="form-group">
                 <label for="URL">URL</label>
                 <input
-                  type="number"
+                  type="text"
                   class="form-control"
                   id="imgURL"
                   v-model="payload.imgURL"
@@ -122,7 +123,7 @@
       category:'',
       price:'',
       prodQuantity:'',
-      imgURL:'https://i.postimg.cc/mDk93cjN/gadget_logo-removebg-preview.png'
+      imgURL:''
     }
     const store= useStore();
     const addProduct = () => {

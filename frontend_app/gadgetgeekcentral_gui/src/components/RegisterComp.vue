@@ -1,58 +1,49 @@
 <template>
     <div class="container-fluid">
-        <div class="row">
-            <h3 class="display-2">Register</h3>
-        </div>
-        <div class="row">
-            <div class="col">
                 <form class="form" @submit.prevent="signUp">
                     <div class="form-control-wrapper ">            
                       <input class="form-control" type="text" placeholder="Firstname" required v-model="payload.firstname"/>   
-                      <i class="fa-solid fa-user"></i>                           
+                                               
                   </div>
                   <div class="form-control-wrapper ">           
              <input type="text" class="form-control" placeholder="Lastname" v-model="payload.lastname">             
                   </div>
                   <div class="form-control-wrapper ">  
-                        <i class="fa-solid fa-user"></i> <input type="text" class="form-control" placeholder="Gender" v-model="payload.gender">
+                        <input type="text" class="form-control" placeholder="Gender" v-model="payload.gender">
                            
                   </div>
                   <div class="form-control-wrapper ">  
-                      
-                        <i class="fa fa-telephone-fill"></i><input type="text" class="form-control" placeholder="Cellphone" v-model="payload.cellphoneNumber" maxlength="12">
-                        
-                            
+                      <input type="text" class="form-control" placeholder="Cellphone" v-model="payload.cellphoneNumber" maxlength="12">
+ 
                   </div>
                   <div class="form-control-wrapper ">  
                       
-                        <i class="fa fa-envelope"></i> <input type="email" class="form-control" placeholder="Email" v-model="payload.emailAdd">         
+                      <input type="email" class="form-control" placeholder="Email" v-model="payload.emailAdd">         
                             
                   </div>
                   <div class="form-control-wrapper ">  
                     
-                        <i class="fa fa-person-fill"></i><input type="password" class="form-control" placeholder="Password" v-model="payload.userPass"> 
+                  <input type="password" class="form-control" placeholder="Password" v-model="payload.userPass"> 
                             
                   </div>
                   <div class="form-control-wrapper ">  
-                 <i class="fa fa-link"></i><input type="text" class="form-control" placeholder="Profile URL" v-model="payload.userProfile">
+                <input type="text" class="form-control" placeholder="Profile URL" v-model="payload.userProfile">
                        
                              
                   </div>
                   <div class="form-control-wrapper ">  
                       
-                        <input type="date" class="form-control" placeholder="Joined Date" v-model="payload.joinDate">
-                              
+                        <input type="date" class="form-control" placeholder="Joined Date" v-model="payload.joinDate">          
                   </div>
                   <div class="form-control-wrapper ">  
-                    <label class="form-control bg-gradient  alert alert-success" v-if="usermessage" >{{usermessage}}</label>
+                    <label class="form-control bg-gradient  alert alert-success" v-show="usermsg" >{{usermsg}}</label>
                   </div>
                   <div class="form-control-wrapper ">  
-                    <button type="submit" class="btn btn-dark w-100">Register</button>
+                    <button type="submit" class="btn btn-dark w-50">Register</button>
                   </div>
               </form>
             </div>
-        </div>
-    </div>
+     
 </template>
 <script>
 import {computed} from '@vue/runtime-core';
@@ -67,19 +58,19 @@ export default {
           cellphoneNumber: '',
           emailAdd: '',
           userPass: '',
-          userProfile: 'https://i.postimg.cc/HLtYpsMc/person-icon-red-7540-1-removebg-preview.png',
+          userProfile: 'https://i.postimg.cc/PJ76s5mb/person-4-512.png',
           joinDate: ''
         };
       const store = useStore();
       const signUp = () => {
       store.dispatch("register", payload);
-      console.log(payload,alert('user successfully registered'));  
+      console.log(payload);  
       }
-      const usermessage= 
-      computed( () => store.state.message )
+      const usermsg= 
+      computed( () => store.state.msg )
       return {
         payload,
-        usermessage,
+        usermsg,
         signUp,
       
       }
@@ -89,19 +80,28 @@ export default {
 </script>
 <style scoped>
 .form{
-  margin-left: 30rem;
-  margin-right:30rem ;
+  /* width: 50%; */
   backdrop-filter: blur(21px) saturate(180%);
     -webkit-backdrop-filter: blur(21px) saturate(180%);
-    background-color: rgba(74, 144, 226, 0.84);
-    border-radius: 12px;
+    background-color: rgba(113, 167, 228, 0.84);
+    border-radius: 0;
     border: 1px solid rgba(209, 213, 219, 0.3);
     padding: 2rem;
+
+}
+.btn{
+  border-radius: 0;
+  margin-top: 1rem;
 }
 .form-control{
-  background-color: rgba(113, 161, 216, 0.84);
+  background-color: rgba(188, 202, 219, 0.84);
+  border-radius: 0;
+  margin-top: 1rem;
+  
 } 
-#alert{
-  background-color: rgb(113, 228, 113);
-}
+/* .container-fluid{ */
+  /* padding-left: 30rem;
+} */
+
+
 </style>
