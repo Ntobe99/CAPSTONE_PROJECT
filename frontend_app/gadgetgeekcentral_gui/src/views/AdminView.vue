@@ -126,8 +126,10 @@
               <td scope="row">R{{ product.price }}</td>
               <td scope="row">{{ product.category }}</td>
               <td><img :src="product.imgURL" style="height: 5rem" /></td>
-              <td>
-                <i class="fa-solid fa-pen-to-square"></i>
+           <td>
+                  
+                <UpdateProduct/>
+                
                 
               </td>
               <td>
@@ -150,6 +152,7 @@
  
 // import AddProduct from '@/components/AddProduct.vue';
 import SpinnerComp from '@/components/SpinnerComp.vue';
+import UpdateProduct from '@/components/updateProduct.vue';
 import {computed} from '@vue/runtime-core';
 import {useStore} from 'vuex';
 export default{
@@ -194,7 +197,7 @@ export default{
             spinner,
         };
     },
-  components:{SpinnerComp,} 
+  components:{ SpinnerComp, UpdateProduct } 
 };
 </script>
 

@@ -9,10 +9,14 @@
           <div class="col-sm-12 col-md-6 text-start">
             <p>GadgetGeekCentral is the ultimate destination for tech-savvy customers who are looking for the latest and greatest in the world of technology gadgets. With our exceptional customer service, wide range of products, and commitment to providing a great user experience.</p>
             <p>Our team of experts are constantly researching and testing the latest gadgets to provide you with the most awesome gadgets.</p>
+            <p>
+At GadgetGeekCentral, we will offer a wide range of products, including smartphones,VR headsets,laptops, gaming consoles, smart home devices, drones and more. Our inventory will be carefully curated to ensure that we only offer the best and most innovative gadgets from top brands and manufacturers.
+</p>
             <p>Whether you're looking for a new smartphone, tablet, or laptop, GadgetGeekCentral has got you covered.</p>
           </div>
           <div class="col-sm-12 col-md-6">
-            <img src="" class="img-fluid ">
+            <h4>Founder and CEO Miss Nontobeko Mhlongo</h4>
+            <img src="https://i.postimg.cc/ryQ7ykBw/pexels-christina-morillo-1181414.jpg" class="img-fluid ">
           </div>
         </div>
       </div>
@@ -31,12 +35,14 @@ export default{
 <style scoped>
 .container-fluid{
   min-height: 100vh;
+  width: 100%;
 }
 .text { 
   font-size: clamp(4em, 15vmin, 20em);
   text-shadow: 0;
-  color: black;
+  color: rgb(7, 4, 46);
   animation: anime 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) alternate infinite;
+  width: 100%;
 }
 
 @keyframes anime {

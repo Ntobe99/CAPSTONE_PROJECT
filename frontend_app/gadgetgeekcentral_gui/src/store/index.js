@@ -48,6 +48,9 @@ export default createStore({
     updateUser: (state, value) => (state.value = value),
     getProduct: (state, value) => (state.value = value),
     editproduct: (state, editproduct) => (state.editproduct = editproduct),
+    removeProduct(state, id) {
+      const index = state.products.findIndex(product => product.id === id)
+      state.products.splice(index, 1)},
   },
   actions: {
     async login(context, payload) {
@@ -146,8 +149,8 @@ export default createStore({
         context.commit("setMessage", err);
       }
     },
-    async editProduct(context, prodID) {
-      const res = await axios.put(`${ggcURL}product/${prodID}`);
+    async editProduct(context, payload) {
+      const res = await axios.put(`${ggcURL}product`,payload);
       const { result, err } = await res.data;
       if (result) {
         context.commit("setEditProducts", result);

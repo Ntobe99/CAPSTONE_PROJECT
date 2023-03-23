@@ -1,7 +1,10 @@
 <template>
     <div class="container-fluid products">
   <div class="row">
-    
+    <div class="col">....</div>
+  <div class="col">
+    <FilterComp/>
+  </div>  
   </div>
   <div class="row justify-content-center " v-if="spinnerDisplay">
     <SpinnerComp />
@@ -38,12 +41,13 @@
 
 <script>
 
+import FilterComp from "@/components/FilterComp.vue";
 import SpinnerComp from "@/components/SpinnerComp.vue";
 import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
 // import FilterProducts from "./filterProducts.vue";
 export default {
-components: { SpinnerComp,  },
+components: { SpinnerComp, FilterComp },
 setup() {
   const store = useStore();
   store.dispatch("fetchProducts");

@@ -33,7 +33,7 @@
     <RouterLink to="/login">LOGIN</RouterLink>
   </li>
   <li v-if="user !== null" class="nav-item ">
-    <RouterLink to="/user"><img class="rounded " :src="user.userProfile" style="height: 1rem;background-color: aquamarine;"></RouterLink>
+    <RouterLink to="/user"><img class="rounded " :src="user.userProfile" style="height: 1rem;background-color: #2ccbd6;"></RouterLink>
     <p class=" user-details d-block d-lg-none fw-bold fs-5">{{ user.firstname + ' ' + user.lastname }}</p>
   </li>
   <li class="nav-item ">

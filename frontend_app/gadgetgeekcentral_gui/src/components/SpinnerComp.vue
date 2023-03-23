@@ -1,7 +1,7 @@
 <template>
     <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </template>
-  <style>
+  <style scoped>
   .lds-spinner {
     color: official;
     display: inline-block;

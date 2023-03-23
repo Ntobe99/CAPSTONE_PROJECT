@@ -3,14 +3,21 @@
     <div class="row">
         <div class="col userp">
             <img :src="user.userProfile" :alt="user.firstname + ' ' + user.lastname"  class="img-fluid mb-5" >
-           <router-link to="/logout">
-            <button type="button" class="btn btn-dark">Logout</button>
-           </router-link>
+            <div class="logout">
+              <logout/>
+            </div>
+            <div class="deleteP" style="background-color: aqua;">
+              <router-link :to="{name: 'deleteuser', params: {id: user.userID}}">
+            </router-link>
+            </div>
+            
+
+
            
             
-            <button type="button" class="btn btn-danger">Delete account</button>
         </div>
         <div class="col">
+           
         <h3 class="fw-bold">Name</h3>
         <p class="user-info">{{ user.firstname + ' ' + user.lastname }}</p>
        <hr class="border border-success border-2 opacity-50">
@@ -36,17 +43,20 @@
 </template>
 
 <script>
+import Logout from '@/components/logout.vue';
+
 export default{
-    setup(){
-    const userLoggedIn =JSON.parse(localStorage.getItem('user'));
-    let user = userLoggedIn == null || userLoggedIn == undefined ? null: userLoggedIn;
-    const {joinDate} = user;
-    let splitDate = joinDate.split('T');
-    return{
-      user,
-      splitDate
-    }
-    }
+    setup() {
+        const userLoggedIn = JSON.parse(localStorage.getItem("user"));
+        let user = userLoggedIn == null || userLoggedIn == undefined ? null : userLoggedIn;
+        const { joinDate } = user;
+        let splitDate = joinDate.split("T");
+        return {
+            user,
+            splitDate
+        };
+    },
+    components: { Logout }
 }
 </script>
 <style scoped>
@@ -58,5 +68,8 @@ export default{
   }
   .container-fluid{
     padding-bottom: 1rem;
+  }
+  .btn{
+    width: 15px;
   }
 </style>

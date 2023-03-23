@@ -26,6 +26,7 @@ export default{
   text-align: center;
   color: black;
   padding-top: 6rem;
+  background-color: #eaf2f7;
   
 }
 
@@ -41,6 +42,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #aac7e3 ;
+  color: #e4ebef ;
 }
 </style>

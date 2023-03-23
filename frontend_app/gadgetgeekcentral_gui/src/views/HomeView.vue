@@ -1,24 +1,49 @@
 <template>
   <div class="home">
-    <video width="900" height="440" controls loop autoplay muted class="object-fit-none">
-  <source src="https://images.samsung.com/is/content/samsung/assets/africa_en/2208/pcd/smartphones/PCD_Combo_KV_Main-KV_1440x640_pc_v1.mp4" type="video/mp4">
-  
-</video>
+    <div class="name" v-if="user !== null ">
+   <h1>Welcome {{ user.firstname + ' '+ user.lastname}}</h1>
   </div>
+  <div class="guest" v-else><h1>Welcome guest</h1></div>
+ 
+    <video autoplay loop>
+      <source src="https://images.samsung.com/is/content/samsung/assets/africa_en/2208/pcd/smartphones/PCD_Combo_KV_Main-KV_1440x640_pc_v1.mp4" type="video/mp4">
+    </video>
+    
+
+ 
+</div>
+
 </template>
 
 <script>
-// @ is an alias to /src
+
+
+
 
 export default {
   name: 'HomeView',
   components: {
    
+  },
+  setup(){
+    const userLoggedIn =JSON.parse(localStorage.getItem('user'));
+    let user = userLoggedIn == null || userLoggedIn == undefined ? null: userLoggedIn;
+    return{
+      user,
+    }    
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+video {
+  width: 100%;
+  height: auto;
+}
+.home{
+  background-color: rgb(238, 239, 239);
+  height: 100%;
+  width: 100%;
+}
 
 </style>

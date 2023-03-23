@@ -15,36 +15,21 @@
   
   <script>
   export default {
-    props: {
-        prodID: {
-        type: String,
-        required: true
-      }
-    },
-    
-    data() {
-      return {
-        showModal: false
-      };
-    },
-    methods: {
-      deleteProduct() {
-        fetch(`https://fruit-and-veg.onrender.com/product/${this.prodID}`, {
-          method: 'DELETE'
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            this.$emit('product-deleted');
-            this.showModal = false;
-          })
-          .catch(error => {
-            console.error('There was a problem deleting the product:', error);
-          });
-      }
+    deleteProduct: function (product) {
+            return this.$store.dispatch("deleteProduct", {
+                prodID: product.prodID,
+                prodName: product.prodName,
+                prodDescription: product.prodDescription,
+                category: product.category,
+                price: product.price,
+                prodQuantity: product.prodQuantity,
+                imgURL: product.imgURL,
+               
+            })
+        },
     }
-  };
+    
+    
   </script>
   
   <style>

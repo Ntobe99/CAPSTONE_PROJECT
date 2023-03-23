@@ -84,16 +84,14 @@ export default{
         
         async function userLogin(payload){
             spinner.value = !spinner.value;
-            await store.dispatch('login', payload);
+            await store.dispatch( 'login', payload);
             localStorage.setItem('user',JSON.stringify(store.state.user))
             location.reload();
             spinner.value = !spinner.value;
             router.push({name:'home', path:'/'}).then(() => location.reload())
-            console.log(usermsg);
+            alert('you have succesfully logged in')
         };
-      
-           
-        
+     
         return{
             user,
             router,

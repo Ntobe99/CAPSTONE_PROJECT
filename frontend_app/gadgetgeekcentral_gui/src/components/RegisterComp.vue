@@ -2,28 +2,28 @@
     <div class="container-fluid">
                 <form class="form" @submit.prevent="signUp">
                     <div class="form-control-wrapper ">            
-                      <input class="form-control" type="text" placeholder="Firstname" required v-model="payload.firstname"/>   
+                      <input class="form-control" type="text" placeholder="Firstname" required v-model="payload.firstname" req/>   
                                                
                   </div>
                   <div class="form-control-wrapper ">           
-             <input type="text" class="form-control" placeholder="Lastname" v-model="payload.lastname">             
+             <input type="text" class="form-control" placeholder="Lastname" required v-model="payload.lastname">             
                   </div>
                   <div class="form-control-wrapper ">  
-                        <input type="text" class="form-control" placeholder="Gender" v-model="payload.gender">
+                        <input type="text" class="form-control" placeholder="Gender" required v-model="payload.gender">
                            
                   </div>
                   <div class="form-control-wrapper ">  
-                      <input type="text" class="form-control" placeholder="Cellphone" v-model="payload.cellphoneNumber" maxlength="12">
+                      <input type="text" class="form-control" placeholder="Cellphone" required v-model="payload.cellphoneNumber" maxlength="12">
  
                   </div>
                   <div class="form-control-wrapper ">  
                       
-                      <input type="email" class="form-control" placeholder="Email" v-model="payload.emailAdd">         
+                      <input type="email" class="form-control" placeholder="Email" required v-model="payload.emailAdd">         
                             
                   </div>
                   <div class="form-control-wrapper ">  
                     
-                  <input type="password" class="form-control" placeholder="Password" v-model="payload.userPass"> 
+                  <input type="password" class="form-control" placeholder="Password" required v-model="payload.userPass"> 
                             
                   </div>
                   <div class="form-control-wrapper ">  
@@ -33,7 +33,7 @@
                   </div>
                   <div class="form-control-wrapper ">  
                       
-                        <input type="date" class="form-control" placeholder="Joined Date" v-model="payload.joinDate">          
+                        <input type="date" class="form-control" placeholder="Joined Date" required v-model="payload.joinDate">          
                   </div>
                   <div class="form-control-wrapper ">  
                     <label class="form-control bg-gradient  alert alert-success" v-show="usermsg" >{{usermsg}}</label>
