@@ -213,12 +213,7 @@ class Cart {
   // Function to add a product to the cart
   addToCart(req, res) {
     const qry = `INSERT INTO  
-        Cart (
-        userID,
-        prodID, 
-        quantity)
-
-         VALUES (?, ?, ?)`;
+        Cart  SET ?;`;
     db.query(qry, [req.body], (err) => {
       if (err) {
         res.status(400).json({ err: "Unable to add to new cart." });
@@ -230,7 +225,7 @@ class Cart {
 
   // Function to retrieve all the products in the cart for a specific user
   getCartItems(req, res) {
-    const qry = `SELECT  FROM Cart WHERE userID = ?`;
+    const qry = `SELECT id , prodID, userID, firstname,lastname,prodName,quantity,(price*quantity )  as total ,price, FROM Cart INNER JOIN USERS USING(userID) INNER JOIN Products USING(prodID) WHERE userID = ? GROUP BY prodName;`;
     db.query(qry, [req.params.id], (err) => {
       if (err) {
         res.status(400).json({ err: "Unable to insert a new record." });
@@ -242,21 +237,21 @@ class Cart {
 
   // Function to update the quantity of a product in the cart
   updateCartItem(req, res) {
-    const qry = `UPDATE Cart SET quantity = ? WHERE userID = ? AND prodID = ?`;
+    const qry = `UPDATE Cart SET quantity = ? WHERE id = ?`;
 
     db.query(qry, [req.body, req.params.id], (err) => {
       if (err) {
         res.status(400).json({ err: "Unable to update a record." });
         console.log(err);
       } else {
-        res.status(200).json({ msg: "Product updated" });
+        res.status(200).json({ msg: "cart updated" });
       }
     });
   }
 
   // Function to remove a product from the cart
   removeCartItem(req, res) {
-    const qry = `DELETE FROM Cart WHERE userID = ? AND prodID= ?`;
+    const qry = `DELETE FROM Cart WHERE id = ?`;
     db.query(qry, [req.params.id], (err) => {
       if (err) res.status(400).json({ err: "The record was not found." });
       res.status(200).json({ msg: "A cart item  was deleted." });

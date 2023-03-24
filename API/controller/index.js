@@ -90,7 +90,7 @@ bodyParser.json(),
 (req,res)=>{cart.updateCartItem(req,res)})
 
 //delete delete item from cart
-route.delete('/user/:id/cart',(req,res) =>
+route.delete('/user/:id/cart/:id',(req,res) =>
 {cart.removeCartItem(req,res)}
 )
 
