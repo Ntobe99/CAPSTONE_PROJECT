@@ -230,7 +230,7 @@ class Cart {
     INNER JOIN USERS ON (USERS.userID = Cart.userID) 
     INNER JOIN Products ON (Products.prodID = Cart.prodID) 
     WHERE userID = ? 
-    GROUP BY prodName;
+    GROUP BY prodName ;
     `;
     db.query(qry, (err, results) => {
       if (err) throw err;
