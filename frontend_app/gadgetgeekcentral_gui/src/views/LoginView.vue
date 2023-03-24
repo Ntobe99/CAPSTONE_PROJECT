@@ -15,10 +15,10 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div v-if="!spinner" class="card-body p-4 p-lg-5 text-black">
 
-                <form v-if="login && user == null && !spinner">
+                <form v-if="login && user == null && !spinner" class="login-form">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fa-solid fa-right-to-bracket" style="color: blue;padding:1rem ;"></i>
+                   
                     <span class="h1 fw-bold mb-0">GadgetGeekCentral</span>
                   </div>
 
@@ -114,10 +114,51 @@ export default{
 
 .btn{
     border-radius: 0;
-    
+    transition: all 0.25s ease 0s;
+}
+.btn:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 2px #000;
 }
 .form-control{
   border-radius: 0;
+}
+@media screen and (max-width: 400px) {
+  .login-form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  label, input, button,h1{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  input[type="text"], input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 310px) {
+  .login-form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 308px) {
+  .login-form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .login-form {
+    width: 90%;
+  }
 }
 
 </style>

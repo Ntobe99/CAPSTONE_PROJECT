@@ -1,6 +1,5 @@
 <template>
     <div class="container-fluid">
-
         <div v-if="spinner" class="admin d-flex justify-content-center">
         <SpinnerComp/>
     </div>
@@ -38,9 +37,10 @@
     <div class="row"><h1>Users</h1></div>
     <hr class="border border-dark border-2 opacity-50">
     <div class="row ">
-      <table class="table table-warning ">
+      <div class="table-responsive">
+      <table class="table table-success table-striped">
         <thead>
-          <tr>
+          <tr class="table table-success table-striped">
             <th scope="col">ID</th>
             <th scope="col">Image</th>
             <th scope="col">Name</th>
@@ -54,7 +54,7 @@
         <tbody>
 
             
-          <tr v-for="user in users" :key="user.userID">  
+          <tr v-for="user in users" :key="user.userID" class="table table-success table-striped">  
             
             <td>{{user.userID}}</td>
             <td><img :src="user.userProfile" style="height:5rem"></td>
@@ -75,14 +75,14 @@
       <div class="modal-body">
         <form  >
 
-            <input type="number" placeholder="id" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.userID">
+            <input type="number" placeholder="Enter the id of user you want to edit" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.userID">
             <input type="text" placeholder="Firstname" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.firstname">
             <input type="text" placeholder="Lastname" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.lastname">  
             <input type="text" placeholder="gender" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.gender">
             <input type="number" placeholder="cellphoneNumber" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.cellphoneNumber">
             <input type="email" placeholder="Email" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.emailAdd">
             <input type="text" placeholder="image" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.userProfile">
-            <input type="text" placeholder="Enter Password" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.userPass">
+            <input type="password" placeholder="Enter Password" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.userPass">
            <input type="date" placeholder="date" class="form-control text-center w-75 mx-auto mb-2" v-model="payload.joinDate">
 
         </form>
@@ -96,18 +96,24 @@
 </div>
      </td>
      <td>
-      <i class="fa-solid fa-trash"></i>
+       <router-link :to="{name: 'deleteuser', params: {id:user.userID}}">
+        <button type="button" class="btn btn-danger">
+          <i class="fa-solid fa-trash"></i>
+        </button>  
+        </router-link>
      </td>
           </tr>
         </tbody>
       </table>
+    </div>
       <hr class="border border-dark border-2 opacity-50">
       <div class="products">
         <h1>Products</h1>
         <hr class="border border-dark border-2 opacity-50">
-        <table class="table table-warning">
+        <div class="table-responsive">
+        <table class="table table-success table-striped">
           <thead>
-            <tr>
+            <tr class="table table-success table-striped">
               <th scope="col">ID</th>
               <th scope="col">Name</th>
               <th scope="col">Price</th>
@@ -120,27 +126,26 @@
           </thead>
 
           <tbody>
-            <tr v-for="product in products" :key="product.prodID">
+            <tr v-for="product in products" :key="product.prodID" class="table table-success table-striped">
               <td scope="row">{{ product.prodID  }}</td>
               <th scope="row">{{ product.prodName }}</th>
               <td scope="row">R{{ product.price }}</td>
               <td scope="row">{{ product.category }}</td>
               <td><img :src="product.imgURL" style="height: 5rem" /></td>
-           <td>
-                  
-                <UpdateProduct/>
-                
-                
+           <td>   
+                <UpdateProduct/> 
               </td>
               <td>
-                <i class="fa-solid fa-trash"></i>
-                
-              </td>
-
-            
+       <router-link :to="{name: 'deleteproduct', params: {id:product.prodID}}">
+        <button type="button" class="btn btn-danger">
+          <i class="fa-solid fa-trash"></i>
+        </button>  
+       </router-link>       
+            </td>   
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
     </div>
     </div>
@@ -149,12 +154,11 @@
  </template>
  
  <script>
- 
-// import AddProduct from '@/components/AddProduct.vue';
+
 import SpinnerComp from '@/components/SpinnerComp.vue';
 import UpdateProduct from '@/components/updateProduct.vue';
-import {computed} from '@vue/runtime-core';
-import {useStore} from 'vuex';
+import { computed } from '@vue/runtime-core';
+import { useStore } from 'vuex';
 export default{
     
     setup() {
@@ -183,7 +187,6 @@ export default{
         const products = computed(() => store.state.products);
         const users = computed(() => store.state.users);
         const spinner = computed(() => store.state.spinner);        
-        // const addProduct= computed(()=>store.state.addProduct)
         const edit = () => {
             store.dispatch("updateUser", payload)
             store.dispatch("fetchUsers");
@@ -213,6 +216,10 @@ export default{
  }
  .btn{
   border-radius: 0;
- }
- 
+  transition: all 0.25s ease 0s
+}
+.btn:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 2px #000;
+}
  </style>

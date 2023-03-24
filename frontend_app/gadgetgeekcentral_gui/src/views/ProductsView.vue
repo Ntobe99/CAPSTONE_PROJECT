@@ -71,16 +71,18 @@ padding-bottom: 3rem;
 }
 .card {
 color:black;
-background-color: #fbfbfe;
+background-color: #ebebf3;
 transition: background-color 0.5s;
 }
 
-.card:hover {
-background-color: #e6e6e5;
-color: black;
-}
+
 .btn{
   border-radius: 0;
+  transition: all 0.25s ease 0s
+}
+.btn:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 2px #000;
 }
 
 

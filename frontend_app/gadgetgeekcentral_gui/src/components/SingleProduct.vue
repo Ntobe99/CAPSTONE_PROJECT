@@ -1,4 +1,5 @@
 <template>
+    <div class="container-fluid">
     <div class="row mt-5" v-if="isLoggedIn">
         <div class="col-4">
             <img v-bind:src="product.imgURL" class="w-100" alt="productImage"/>
@@ -20,10 +21,9 @@
                 <button  type="button" class="btn btn-dark">SEE LESS</button>
             </router-link>
         </div>
+        </div>
     </div>
-    <div v-else>
-     
-    </div>
+
 </template>
 
 <script>
@@ -71,6 +71,14 @@ export default {
 }
 .w-100{
     padding-bottom: 3rem;
+}
+@media only screen and (max-width: 767px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
 }
 
 </style>

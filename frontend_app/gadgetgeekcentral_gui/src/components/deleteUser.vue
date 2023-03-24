@@ -21,5 +21,7 @@
 </script>
 
 <style  scoped>
-
+.deluser{
+  background-color: red;
+}
 </style>

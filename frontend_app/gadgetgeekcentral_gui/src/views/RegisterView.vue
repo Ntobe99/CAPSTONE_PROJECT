@@ -1,9 +1,9 @@
 <template>
-    <div class="container-fluid">
-                <form class="form" @submit.prevent="signUp">
+  
+    <div class="container-fluid" >
+                <form class="form" @submit.prevent="signUp" >
                     <div class="form-control-wrapper ">            
-                      <input class="form-control" type="text" placeholder="Firstname" required v-model="payload.firstname"/>   
-                                               
+                      <input class="form-control" type="text" placeholder="Firstname" required v-model="payload.firstname"/>                             
                   </div>
                   <div class="form-control-wrapper ">           
              <input type="text" class="form-control" placeholder="Lastname" v-model="payload.lastname">             
@@ -35,7 +35,7 @@
                       
                         <input type="date" class="form-control" placeholder="Joined Date" v-model="payload.joinDate">          
                   </div>
-                  <div class="form-control-wrapper ">  
+                  <div class="form-control-wrapper" >  
                     <label class="form-control bg-gradient  alert alert-success" v-show="usermsg" >{{usermsg}}</label>
                   </div>
                   <div class="form-control-wrapper ">  
@@ -46,36 +46,38 @@
      
 </template>
 <script>
+
+
 import {computed} from '@vue/runtime-core';
 import {useStore} from 'vuex';
 export default {
     setup() {
-      const payload = {
-          firstname: '',
-          lastname: '',
-          gender: '',
-          userRole:'user',
-          cellphoneNumber: '',
-          emailAdd: '',
-          userPass: '',
-          userProfile: 'https://i.postimg.cc/PJ76s5mb/person-4-512.png',
-          joinDate: ''
+      
+        const payload = {
+            firstname: "",
+            lastname: "",
+            gender: "",
+            userRole: "user",
+            cellphoneNumber: "",
+            emailAdd: "",
+            userPass: "",
+            userProfile: "https://i.postimg.cc/PJ76s5mb/person-4-512.png",
+            joinDate: ""
         };
-      const store = useStore();
-      const signUp = () => {
-      store.dispatch("register", payload);
-      console.log(payload);  
-      }
-      const usermsg= 
-      computed( () => store.state.msg )
-      return {
-        payload,
-        usermsg,
-        signUp,
-      
-      }
-      
-    }
+        const store = useStore();
+        const signUp = () => {
+            store.dispatch("register", payload);
+            console.log(payload);
+        };
+        const usermsg = computed(() => store.state.msg);
+        return {
+            payload,
+            usermsg,
+            signUp,
+           
+        };
+    },
+    
 }
 </script>
 <style scoped>

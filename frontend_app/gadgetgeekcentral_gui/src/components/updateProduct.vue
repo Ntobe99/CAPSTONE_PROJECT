@@ -1,11 +1,9 @@
 <template>
     <div>
-     
       <!-- Button trigger modal -->
 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editProductModal">
   <i class="fa-solid fa-pen-to-square"></i>
 </button>
-
 <!-- Modal -->
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -15,8 +13,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
-        <form @submit.prevent="addProduct">
+        <form @submit.prevent="editProduct">
               <div class="form-group">
                 <label for="prodName">Product Name</label>
                 <input
@@ -73,7 +70,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="URL">URL</label>
+                <label for="URL"> Image URL</label>
                 <input
                   type="text"
                   class="form-control"
@@ -107,13 +104,13 @@ export default{
       category:'',
       price:'',
       prodQuantity:'',
-      imgURL:'https://www.freepik.com/premium-vector/product-line-concept-simple-line-icon-colored-illustration-product-symbol-flat-design-can-be-used-ui-ux_19082268.htm#query=product%20icon&position=13&from_view=keyword&track=ais'
+      imgURL:''
     }
         const store = useStore(); 
         const editProduct = async () => {
-            await store.dispatch('editProduct',)
-            await store.dispatch('fetchProducts');
-            location.reload();    
+            await store.dispatch('editProduct',payload)
+            await store.dispatch('fetchProduct');
+              
         
         }
         return{

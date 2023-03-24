@@ -118,16 +118,27 @@
   padding: 10px 60px;
   font-weight: 600;
   letter-spacing: 2px;
+  transition: all 0.25s ease 0s
 }
 
 .contact-form .submit-button-wrapper input:hover {
   background-color: #2f85e8;
+  scale: 1.05;
+  box-shadow: 2px 2px 2px #000;
 }
 .col{
   text-align: start;
 }
 .info{
   padding-top: 5rem;
+}
+.btn{
+  border-radius: 0;
+  transition: all 0.25s ease 0s
+}
+.btn:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 2px #000;
 }
 
 </style>

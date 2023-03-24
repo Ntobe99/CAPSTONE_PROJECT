@@ -6,18 +6,23 @@
             <div class="logout">
               <logout/>
             </div>
-            <div class="deleteP" style="background-color: aqua;">
-              <router-link :to="{name: 'deleteuser', params: {id: user.userID}}">
-            </router-link>
+            <div class="update">
+              <router-link to="/updateUser">
+                <button type="button" class="btn btn-warning">Edit your profile</button>
+              </router-link>
             </div>
-            
-
-
-           
-            
+            <div class="deleteuser" >
+              <router-link :to="{name: 'deleteuser', params: {id:user.userID}}">
+        <button type="button" class="btn btn-danger">
+          Delete Profile
+        </button>  
+        </router-link>
+            </div>       
         </div>
-        <div class="col">
-           
+        <div class="col"> 
+          <h3 class="fw-bold">Your ID</h3> 
+          <p class="user-info">{{ user.userID }}</p> 
+          <hr class="border border-success border-2 opacity-50">
         <h3 class="fw-bold">Name</h3>
         <p class="user-info">{{ user.firstname + ' ' + user.lastname }}</p>
        <hr class="border border-success border-2 opacity-50">
@@ -34,7 +39,7 @@
         <p>{{ user.cellphoneNumber }}</p>
         <hr class="border border-success border-2 opacity-50">
         <h3 class=" fw-bold">Join Date</h3>
-        <p class="user-info">{{ splitDate[0] }}</p>
+        <p class="user-info">{{ joiningDate[0] }}</p>
         <hr class="border border-success border-2 opacity-50">
        
     </div>
@@ -50,10 +55,10 @@ export default{
         const userLoggedIn = JSON.parse(localStorage.getItem("user"));
         let user = userLoggedIn == null || userLoggedIn == undefined ? null : userLoggedIn;
         const { joinDate } = user;
-        let splitDate = joinDate.split("T");
+        let joiningDate = joinDate.split("T");
         return {
             user,
-            splitDate
+            joiningDate
         };
     },
     components: { Logout }
@@ -68,8 +73,16 @@ export default{
   }
   .container-fluid{
     padding-bottom: 1rem;
-  }
-  .btn{
-    width: 15px;
-  }
+}
+.btn{
+    margin-top: 0.5rem;
+    border-radius: 0;
+    transition: all 0.25s ease 0s;
+}
+.btn:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 2px #000;
+}
+  
+  
 </style>

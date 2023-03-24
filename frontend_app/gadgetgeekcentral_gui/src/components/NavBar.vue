@@ -74,6 +74,7 @@ export default{
 .nav-item{
  padding-left: 2rem;
 }
+
 .navbar-toggler-icon{
   color: rgb(118, 189, 189);
 }

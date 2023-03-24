@@ -12,11 +12,12 @@
             <p>
 At GadgetGeekCentral, we will offer a wide range of products, including smartphones,VR headsets,laptops, gaming consoles, smart home devices, drones and more. Our inventory will be carefully curated to ensure that we only offer the best and most innovative gadgets from top brands and manufacturers.
 </p>
+<p>What sets GadgetGeekCentral apart from other gadget stores is our commitment to providing an exceptional customer experience. We offer a user-friendly website that is easy to navigate, informative.</p>
             <p>Whether you're looking for a new smartphone, tablet, or laptop, GadgetGeekCentral has got you covered.</p>
           </div>
           <div class="col-sm-12 col-md-6">
             <h4>Founder and CEO Miss Nontobeko Mhlongo</h4>
-            <img src="https://i.postimg.cc/ryQ7ykBw/pexels-christina-morillo-1181414.jpg" class="img-fluid ">
+            <img src="https://i.postimg.cc/pXrNVtgB/pexels-christina-morillo-1181414-removebg-preview.png" class="img-fluid ">
           </div>
         </div>
       </div>
@@ -56,4 +57,15 @@ export default{
     text-shadow: none;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .container-fluid {
+    display: flex;
+    flex-direction: column;
+  }
+  .text{ 
+    font-size: 2rem;
+    animation-duration: 2s;}
+}
+
 </style>
