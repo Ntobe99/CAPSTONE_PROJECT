@@ -226,12 +226,9 @@ class Cart {
   // Function to retrieve all the products in the cart for a specific user
   getCartItems(req, res) {
     const qry = `SELECT id , prodID, userID, firstname,lastname,prodName,quantity,(price*quantity )  as total ,price, FROM Cart INNER JOIN USERS USING(userID) INNER JOIN Products USING(prodID) WHERE userID = ? GROUP BY prodName;`;
-    db.query(qry, [req.params.id], (err) => {
-      if (err) {
-        res.status(400).json({ err: "Unable to insert a new record." });
-      } else {
-        res.status(200).json({ msg: "Product saved" });
-      }
+    db.query(qry, (err, results) => {
+      if (err) throw err;
+      res.status(200).json({ results: results });
     });
   }
 
