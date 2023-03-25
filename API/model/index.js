@@ -225,12 +225,11 @@ class Cart {
 
   // Function to retrieve all the products in the cart for a specific user
   getCartItems(req, res) {
-    const qry = `SELECT id, prodID, userID, firstname, lastname, prodName, quantity, price * quantity as total, price 
-    FROM Cart 
-    INNER JOIN USERS ON USERS.userID = Cart.userID 
-    INNER JOIN Products ON Products.prodID = Cart.prodID 
-    WHERE Cart.userID=${req.params.id}; 
-    GROUP BY prodName ;
+    const qry = `SELECT userID, imgURL, prodName, prodDescription, price
+    FROM Cart
+    INNER JOIN Products
+    ON Carts.prodID = Products.prodID
+    WHERE Cart.userID=${req.params.id};
     `;
     db.query(qry, (err, results) => {
       if (err) throw err;
