@@ -228,7 +228,7 @@ class Cart {
     const qry = `SELECT userID, imgURL, prodName, prodDescription, price
     FROM Cart
     INNER JOIN Products
-    ON Carts.prodID = Products.prodID
+    ON Cart.prodID = Products.prodID
     WHERE Cart.userID=${req.params.id};
     `;
     db.query(qry, (err, results) => {
