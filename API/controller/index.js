@@ -93,6 +93,11 @@ bodyParser.json(),
 route.delete('/user/:id/cart/:id',(req,res) =>
 {cart.removeCartItem(req,res)}
 )
+//clear cart
+route.delete('/user/:id/cart',(req,res) =>
+    {cart.removeCartItem(req,res)}
+    )
+
 
 
 module.exports = route;
