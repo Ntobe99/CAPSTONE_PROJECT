@@ -229,7 +229,7 @@ class Cart {
     FROM Cart 
     INNER JOIN USERS ON USERS.userID = Cart.userID 
     INNER JOIN Products ON Products.prodID = Cart.prodID 
-    WHERE userID = ? 
+    WHERE Cart.userID=${req.params.id}; 
     GROUP BY prodName ;
     `;
     db.query(qry, (err, results) => {
