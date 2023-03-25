@@ -1,6 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import aboutView from '../views/AboutView.vue'
+import productsView from '../views/ProductsView.vue'
+import contactView from  '../views/ContactView.vue'
+import adminView from '../views/AdminView.vue'
+import loginView from  '../views/LoginView.vue'
+import registerView from '../views/RegisterView.vue'
+import userView from '../views/UserProfileView.vue'
+import updateComp from '../components/updateProduct.vue'
+import singleproduct from '../components/SingleProduct.vue'
+import deleteProduct from '../components/deleteProduct.vue'
+import updateUserComp from '../components/updateUser.vue'
+import deleteUser from '../components/deleteUser.vue'
+import cart from  '../views/CartView.vue'
+import addProduct from '../components/addProduct.vue'
 const routes = [
   {
     path: '/',
@@ -9,80 +22,75 @@ const routes = [
   },
   {
     path: '/about',
-    name: 'about',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    name: 'about',  
+  component:aboutView
   },
   {
     path: '/products',
     name: 'products',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProductsView.vue')
+   component:productsView
   },
   {
     path: '/contact',
     name: 'contact',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/ContactView.vue')
+    component : contactView
   },
   {
     path: '/admin',
     name: 'admin',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/AdminView.vue')
+    component: adminView
   },
   {
     path: '/login',
     name: 'login',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
+    component:loginView
   },
   {
     path: '/register',
     name: 'register',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
+    component: registerView
   },
   {
     path: '/user',
     name: 'user',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/UserProfileView.vue')
+    component: userView
   },
   {
     path:'/updatep',
     name:'updatep',
-    component: () => import(/* webpackChunkName: "about" */ '../components/updateProduct.vue')
+    component:  updateComp
   },
   {
     path:'/singlep/:id',
     name:'singlep',
-    component: () => import(/* webpackChunkName: "about" */ '../components/SingleProduct.vue')
+    component: singleproduct
   },
   {
     path:'/deleteUser/:id',
     name:'deleteuser',
-    component: () => import(/* webpackChunkName: "about" */ '../components/deleteUser.vue')
+    component: deleteUser
   },
   {
     path:'/deleteProduct/:id',
     name:'deleteproduct',
-    component: () => import(/* webpackChunkName: "about" */ '../components/deleteProduct.vue')
+    component: deleteProduct
   },
   {
     path:'/updateUser',
     name:'update user',
-    component: () => import(/* webpackChunkName: "about" */ '../components/updateUser.vue')
+    component: updateUserComp 
   },
   {
     path:'/cart',
     name:'cart',
-    component: () => import(/* webpackChunkName: "about" */ '../views/CartView.vue')
+    component: cart
   },
   {
     path:'/add',
     name:'add',
-    component: () => import(/* webpackChunkName: "about" */ '../components/addProduct.vue')
+    component:  addProduct
   }
   
 
