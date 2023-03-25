@@ -95,7 +95,7 @@ route.delete('/user/:id/cart/:id',(req,res) =>
 )
 //clear cart
 route.delete('/user/:id/cart',(req,res) =>
-    {cart.removeCartItem(req,res)}
+    {cart.clearCart(req,res)}
     )
 
 
