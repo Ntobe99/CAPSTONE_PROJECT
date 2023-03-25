@@ -259,6 +259,14 @@ class Cart {
       res.status(200).json({ msg: "A cart item  was deleted." });
     });
   }
+  //
+  clearCart(req, res) {
+    const qry = `DELETE FROM Cart `;
+    db.query(qry, [req.params.id], (err) => {
+      if (err) res.status(400).json({ err: "cannot dlete cart items" });
+      res.status(200).json({ msg: "cart was cleared" });
+    });
+  }
 }
 // Export User class
 module.exports = {
