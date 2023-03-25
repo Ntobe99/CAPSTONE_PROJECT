@@ -227,8 +227,8 @@ class Cart {
   getCartItems(req, res) {
     const qry = `SELECT id, prodID, userID, firstname, lastname, prodName, quantity, (price * quantity) as total, price 
     FROM Cart 
-    INNER JOIN USERS ON (USERS.userID = Cart.userID) 
-    INNER JOIN Products ON (Products.prodID = Cart.prodID) 
+    INNER JOIN USERS ON USERS.userID = Cart.userID 
+    INNER JOIN Products ON Products.prodID = Cart.prodID 
     WHERE userID = ? 
     GROUP BY prodName ;
     `;
