@@ -8,7 +8,7 @@
      export default {
       methods: {
       deleteUser() {
-        this.$store.dispatch('deleteUser', this.$route.params.id);
+        this.$store.dispatch('deleteUser',this.$route.params.id);
       }
     },
     computed: {

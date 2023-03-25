@@ -1,12 +1,12 @@
 <template>
     <div class="container-fluid products">
   <div class="row">
-    <div class="col">....</div>
+    <div class="col"></div>
   <div class="col">
     <FilterComp/>
   </div>  
   </div>
-  <div class="row justify-content-center " v-if="spinnerDisplay">
+  <div class="row justify-content-center " v-if="spinner">
     <SpinnerComp />
   </div>
   <div class="row gap-5">
@@ -52,10 +52,11 @@ setup() {
   const store = useStore();
   store.dispatch("fetchProducts");
   const products = computed(() => store.state.products); 
-  const spinnerDisplay = computed(() => store.state.showSpinner);
+  const spinner = computed(() => store.state.showSpinner);
+  
   return {
     products,
-    spinnerDisplay,
+    spinner,
   };
 },
 };

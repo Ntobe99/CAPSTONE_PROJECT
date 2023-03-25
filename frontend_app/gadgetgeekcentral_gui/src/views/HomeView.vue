@@ -4,6 +4,7 @@
   </div>
   <div class="content-container" v-else-if="!spinner">
  <h2 class="display-6">GadgetGeekCentral</h2>
+ <h3></h3>
   <p class="lead text-center w-100">Revolutionize Your Life with the Latest Gadgets!</p>
       <div id="carouselCategory" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -60,8 +61,11 @@ export default {
   name: 'HomeView',
   data(){
     let spinner = ref(true);
+    const userLoggedIn = JSON.parse(localStorage.getItem("user"));
+        let user = userLoggedIn == null || userLoggedIn == undefined ? null : userLoggedIn;
     return{
-      spinner
+      spinner,
+      user
     }
   },
   components: {

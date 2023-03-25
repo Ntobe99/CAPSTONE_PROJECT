@@ -9,6 +9,20 @@
   
   <script>
   export default {
+    computed:{
+    search(){
+      let sBar = this.products;
+      if (this.searchQuery.trim().length > 0) {
+                sBar = sBar.filter((product) => product.prodName.toLowerCase().includes(this.searchQuery))
+            }
+            return sBar
+    }
+  },
+data () {
+    return {
+      searchQuery: '',
+    }
+  }
     
   }
   </script>

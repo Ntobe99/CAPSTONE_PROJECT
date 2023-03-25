@@ -24,12 +24,15 @@ export default createStore({
     addUser: (state) => state.product,
     updateUser: (state) => state.updateproduct,
     editproduct: (state) => state.editproduct,
+    getcart:(state) => state.cartItems,
   },
   mutations: {
     setUsers(state, values) {
       state.users = values;
     },
-
+    setcart(state,values){
+      state.cartItems=values;
+    },
     setUser(state, user) {
       state.user = user;
     },
@@ -158,6 +161,47 @@ export default createStore({
         context.commit("setMessage ", err);
       }
     },
+    fetchCart: async (context,payload) => {
+      const response = await axios.get(`${ggcURL}/user/${payload?.userID}/carts`);
+      const { results } = response.data;
+      if (results) {
+        context.commit("setcartItems", results);
+        context.commit("setSpinner", false);
+      } else {
+        context.commit("setSpinner", true);
+      }
+    },
+    async addToCart(context, payload) {
+      let res = await axios.post(`${ggcURL}user/${payload.userID}/cart`, payload);
+      let {msg, err} = await res.data;
+      if(msg) {
+        context.commit('setCart', msg);
+      }else{
+        context.commit('setMessage', err);
+      }
+    },
+    async editCart (context, payload) {
+      console.log(payload)
+      const res = await axios.put(`${ggcURL}user/${payload.prodID}/cart/${id}`, payload)
+      console.log(res)
+      const { msg, err } = await res.data
+      if (results) {
+        context.commit('setCart', message)
+      } else {
+        context.commit('setMessage', err)
+      }
+    },
+    async deleteCartItem(context) {
+      let currentUser = JSON.parse(localStorage.getItem('user'));
+      const res =  await axios .delete(`${ggcURL}user/${currentUser?.userID}/cart`)
+      const { msg, err } = await res.data
+      if (msg) {
+        console.log("delete - results: ", msg)
+        context.commit('setCart', msg)
+      } else {
+        context.commit('setMessage', err)
+      }
+    }
   },
   modules: {},
 });
